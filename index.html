@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Investment Calculator</title>
+  </head>
+  <body>
+    <div id="container">
+      <h1 id="title">Investment Calculator</h1>
+      <hr />
+      <div>
+        <h2 id="unitTitle">Unit</h2>
+        <input
+          type="text"
+          placeholder="Enter Number of unit(s) to purchase..."
+          id="unitInput"
+          min="1"
+          max="50"
+        />
+      </div>
+
+      <div>
+        <input type="range" min="1" max="50" id="unitRange" value="0" /><span
+          id="rangeId"
+        ></span>
+      </div>
+
+      <div>
+        <h4>Unit(s)</h4>
+        <span id="unitOutput"></span>
+        <hr />
+      </div>
+      <div>
+        <h4>Unit price</h4>
+        <span id="priceOutput"></span>
+        <hr />
+      </div>
+      <div>
+        <span>
+          <h4>Duration</h4>
+          <p id="duration"></p>
+        </span>
+        <hr />
+      </div>
+      <div>
+        <h4>Interest</h4>
+        <span id="interestOutput"></span>
+        <hr />
+      </div>
+      <div>
+        <h4>Return</h4>
+        <span id="totalReturn"></span>
+        <hr />
+      </div>
+    </div>
+
+    <script>
+      document.getElementById('container').onchange = function () {
+        var unitInput = Number(document.getElementById('unitInput').value);
+        var priceOutput = unitInput * 95000;
+        var interestOutput = priceOutput * (35 / 100);
+        var totalReturn = priceOutput + interestOutput;
+        var rangeId = document.getElementById('unitRange').value;
+
+        document.getElementById('unitOutput').innerHTML = unitInput;
+        document.getElementById('priceOutput').innerHTML = '#' + priceOutput;
+        document.getElementById('rangeId').innerHTML = rangeId + 'unit';
+        document.getElementById('duration').innerHTML = '6 months';
+        document.getElementById('interestOutput').innerHTML =
+          '#' + interestOutput + ' ' + '@' + '(35%)';
+        document.getElementById('totalReturn').innerHTML = totalReturn;
+      };
+    </script>
+  </body>
+</html>
